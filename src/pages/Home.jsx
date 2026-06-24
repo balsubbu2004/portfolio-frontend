@@ -711,7 +711,7 @@ export default function Home() {
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#education">Education</a>
-          <a href="#portfolio">Portfolio</a>
+          <a href="#portfolio">Projects</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
           <div className="social-links">
@@ -834,7 +834,7 @@ export default function Home() {
 
       <section className="section portfolio-section" id="portfolio">
         <div className="section-inner">
-          <p className="section-subtitle">Portfolio</p>
+          <p className="section-subtitle">Projects</p>
           <h2 className="section-title">Projects I've built</h2>
           <p className="section-text">A few things I've shipped — click through for details, code, and a live look.</p>
           <div className="portfolio-grid">
