@@ -310,7 +310,7 @@ const styles = `
 .leetcode-card {
   background: linear-gradient(135deg, #1C2333 0%, #2A3350 100%);
   border-radius: 20px;
-  padding: 36px;
+  padding: 28px 36px 36px;
   color: white;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -318,6 +318,28 @@ const styles = `
   margin-top: 36px;
   max-width: 700px;
 }
+.leetcode-card-header {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: #FFA116;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 14px;
+  margin-bottom: 4px;
+}
+.leetcode-card-header a {
+  color: #FFA116;
+  text-decoration: none;
+  margin-left: auto;
+  font-size: 12px;
+  opacity: 0.8;
+}
+.leetcode-card-header a:hover { opacity: 1; }
 .leetcode-stat { text-align: center; }
 .leetcode-stat-value {
   font-family: 'Barlow', sans-serif;
@@ -533,6 +555,11 @@ function LeetCodeStats({ username }) {
 
   return (
     <div className="leetcode-card">
+      <div className="leetcode-card-header">
+        <span>⚡</span>
+        <span>LeetCode Stats</span>
+        <a href="https://leetcode.com/u/S_BALASUBRAMANYAM/" target="_blank" rel="noreferrer">View Profile →</a>
+      </div>
       <div className="leetcode-stat">
         <div className="leetcode-stat-value">{stats.solvedProblem}</div>
         <div className="leetcode-stat-label">Problems solved</div>
@@ -587,7 +614,7 @@ export default function Home() {
         <nav className="site-nav">
           <a href="#home">Home</a>
           <a href="#about">About</a>
-          <a href="#portfolio">Projects</a>
+          <a href="#portfolio">Portfolio</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
           <div className="social-links">
