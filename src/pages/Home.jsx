@@ -284,91 +284,97 @@ const styles = `
 }
 
 /* ---------- EDUCATION ---------- */
-.education-section { background: var(--surface); }
-.education-timeline {
-  margin-top: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  max-width: 800px;
+.education-section {
+  background: linear-gradient(135deg, #1C2333 0%, #2A3350 100%);
 }
 
-.education-item {
+.education-section .section-subtitle {
+  color: #58A6FF;
+}
+
+.education-section .section-title {
+  color: white;
+}
+
+.education-cards {
   display: grid;
-  grid-template-columns: 140px 1fr;
-  gap: 0 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.education-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 28px;
   position: relative;
-  padding-bottom: 36px;
+  overflow: hidden;
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.education-item:last-child { padding-bottom: 0; }
-
-.education-year {
-  text-align: right;
-  padding-top: 4px;
+.education-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.08);
 }
 
-.education-year-text {
+.education-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #4F6FE8, #6E8BFA);
+}
+
+.education-card-year {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 13px;
-  color: var(--blue-1);
+  font-size: 12px;
+  color: #58A6FF;
   font-weight: 600;
-}
-
-.education-connector {
-  position: relative;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 8px;
 }
 
-.education-dot {
-  width: 14px;
-  height: 14px;
+.education-card-year::before {
+  content: '';
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  background: var(--blue-1);
-  border: 3px solid white;
-  box-shadow: 0 0 0 2px var(--blue-1);
-  flex-shrink: 0;
-  margin-top: 4px;
-  z-index: 1;
+  background: #58A6FF;
+  box-shadow: 0 0 8px #58A6FF;
 }
 
-.education-line {
-  width: 2px;
-  flex: 1;
-  background: #E4E8F2;
-  margin-top: 6px;
-}
-
-.education-item:last-child .education-line { display: none; }
-
-.education-content {
-  padding-bottom: 8px;
-}
-
-.education-degree {
+.education-card-degree {
   font-weight: 600;
-  font-size: 17px;
-  color: var(--ink);
-  margin-bottom: 4px;
-}
-
-.education-institution {
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 16px;
+  color: white;
   margin-bottom: 8px;
+  line-height: 1.4;
 }
 
-.education-score {
-  display: inline-block;
-  background: rgba(79, 111, 232, 0.08);
-  color: var(--blue-1);
-  border: 1px solid rgba(79, 111, 232, 0.2);
-  border-radius: 20px;
-  padding: 3px 12px;
+.education-card-institution {
   font-size: 13px;
-  font-weight: 600;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.education-card-score {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(79, 111, 232, 0.2);
+  border: 1px solid rgba(79, 111, 232, 0.4);
+  color: #8FB4FF;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 13px;
+  font-weight: 700;
   font-family: 'JetBrains Mono', monospace;
 }
 
@@ -589,6 +595,7 @@ textarea.contact-input { min-height: 120px; resize: vertical; }
   .hero-image-wrap { order: -1; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
   .leetcode-card { grid-template-columns: 1fr 1fr; }
+  .education-cards { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
@@ -774,51 +781,27 @@ export default function Home() {
         <div className="section-inner">
           <p className="section-subtitle">Academic Background</p>
           <h2 className="section-title">Education</h2>
-          <div className="education-timeline">
+          <div className="education-cards">
 
-            <div className="education-item">
-              <div className="education-year">
-                <div className="education-year-text">2022–2026</div>
-              </div>
-              <div className="education-connector">
-                <div className="education-dot" />
-                <div className="education-line" />
-              </div>
-              <div className="education-content">
-                <div className="education-degree">B.E. — Information Science & Engineering</div>
-                <div className="education-institution">Rao Bahadur Y. Mahabaleswarappa Engineering College, Ballari</div>
-                <span className="education-score">85.17%</span>
-              </div>
+            <div className="education-card">
+              <div className="education-card-year">2022 – 2026</div>
+              <div className="education-card-degree">B.E. — Information Science & Engineering</div>
+              <div className="education-card-institution">Rao Bahadur Y. Mahabaleswarappa Engineering College, Ballari</div>
+              <span className="education-card-score">🎓 85.17%</span>
             </div>
 
-            <div className="education-item">
-              <div className="education-year">
-                <div className="education-year-text">2020–2022</div>
-              </div>
-              <div className="education-connector">
-                <div className="education-dot" />
-                <div className="education-line" />
-              </div>
-              <div className="education-content">
-                <div className="education-degree">Pre-University (PUC)</div>
-                <div className="education-institution">Satyam PU College, Ballari</div>
-                <span className="education-score">77.66%</span>
-              </div>
+            <div className="education-card">
+              <div className="education-card-year">2020 – 2022</div>
+              <div className="education-card-degree">Pre-University (PUC)</div>
+              <div className="education-card-institution">Satyam PU College, Ballari</div>
+              <span className="education-card-score">🎓 77.66%</span>
             </div>
 
-            <div className="education-item">
-              <div className="education-year">
-                <div className="education-year-text">2019–2020</div>
-              </div>
-              <div className="education-connector">
-                <div className="education-dot" />
-                <div className="education-line" />
-              </div>
-              <div className="education-content">
-                <div className="education-degree">SSLC</div>
-                <div className="education-institution">Vivekananda High School</div>
-                <span className="education-score">88.32%</span>
-              </div>
+            <div className="education-card">
+              <div className="education-card-year">2019 – 2020</div>
+              <div className="education-card-degree">SSLC</div>
+              <div className="education-card-institution">Vivekananda High School</div>
+              <span className="education-card-score">🎓 88.32%</span>
             </div>
 
           </div>
