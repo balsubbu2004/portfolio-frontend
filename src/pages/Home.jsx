@@ -283,6 +283,95 @@ const styles = `
   font-size: 14px;
 }
 
+/* ---------- EDUCATION ---------- */
+.education-section { background: var(--surface); }
+.education-timeline {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-width: 800px;
+}
+
+.education-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0 32px;
+  position: relative;
+  padding-bottom: 36px;
+}
+
+.education-item:last-child { padding-bottom: 0; }
+
+.education-year {
+  text-align: right;
+  padding-top: 4px;
+}
+
+.education-year-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--blue-1);
+  font-weight: 600;
+}
+
+.education-connector {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.education-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--blue-1);
+  border: 3px solid white;
+  box-shadow: 0 0 0 2px var(--blue-1);
+  flex-shrink: 0;
+  margin-top: 4px;
+  z-index: 1;
+}
+
+.education-line {
+  width: 2px;
+  flex: 1;
+  background: #E4E8F2;
+  margin-top: 6px;
+}
+
+.education-item:last-child .education-line { display: none; }
+
+.education-content {
+  padding-bottom: 8px;
+}
+
+.education-degree {
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.education-institution {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.education-score {
+  display: inline-block;
+  background: rgba(79, 111, 232, 0.08);
+  color: var(--blue-1);
+  border: 1px solid rgba(79, 111, 232, 0.2);
+  border-radius: 20px;
+  padding: 3px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+}
+
 /* ---------- SKILLS ---------- */
 .skills-list { list-style: none; padding: 0; margin: 32px 0 0; max-width: 640px; }
 .skill-item { margin-bottom: 22px; }
@@ -614,6 +703,7 @@ export default function Home() {
         <nav className="site-nav">
           <a href="#home">Home</a>
           <a href="#about">About</a>
+          <a href="#education">Education</a>
           <a href="#portfolio">Portfolio</a>
           <a href="#skills">Skills</a>
           <a href="#contact">Contact</a>
@@ -676,6 +766,61 @@ export default function Home() {
             </p>
 
             {leetcodeUsername && <LeetCodeStats username={leetcodeUsername} />}
+          </div>
+        </div>
+      </section>
+
+      <section className="section education-section" id="education">
+        <div className="section-inner">
+          <p className="section-subtitle">Academic Background</p>
+          <h2 className="section-title">Education</h2>
+          <div className="education-timeline">
+
+            <div className="education-item">
+              <div className="education-year">
+                <div className="education-year-text">2022–2026</div>
+              </div>
+              <div className="education-connector">
+                <div className="education-dot" />
+                <div className="education-line" />
+              </div>
+              <div className="education-content">
+                <div className="education-degree">B.E. — Information Science & Engineering</div>
+                <div className="education-institution">Rao Bahadur Y. Mahabaleswarappa Engineering College, Ballari</div>
+                <span className="education-score">85.17%</span>
+              </div>
+            </div>
+
+            <div className="education-item">
+              <div className="education-year">
+                <div className="education-year-text">2020–2022</div>
+              </div>
+              <div className="education-connector">
+                <div className="education-dot" />
+                <div className="education-line" />
+              </div>
+              <div className="education-content">
+                <div className="education-degree">Pre-University (PUC)</div>
+                <div className="education-institution">Satyam PU College, Ballari</div>
+                <span className="education-score">77.66%</span>
+              </div>
+            </div>
+
+            <div className="education-item">
+              <div className="education-year">
+                <div className="education-year-text">2019–2020</div>
+              </div>
+              <div className="education-connector">
+                <div className="education-dot" />
+                <div className="education-line" />
+              </div>
+              <div className="education-content">
+                <div className="education-degree">SSLC</div>
+                <div className="education-institution">Vivekananda High School</div>
+                <span className="education-score">88.32%</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
